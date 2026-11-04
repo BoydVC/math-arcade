@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independent solver for Vic's Math Arcade. Re-derives every answer from the problem's raw numbers using
+"""Independent solver for Sam's Math Arcade. Re-derives every answer from the problem's raw numbers using
 Python's exact Fraction arithmetic. It shares no code with web/gen.js. It also checks that those numbers
 actually appear in the prompt the kid sees, so the params can't silently disagree with the text."""
 from fractions import Fraction as Fr

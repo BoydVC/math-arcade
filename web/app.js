@@ -1,4 +1,4 @@
-/* Vic's Math Arcade: game shell. Progress lives in this browser (localStorage) and can be exported as JSON. Nothing is sent anywhere. */
+/* Sam's Math Arcade: game shell. Progress lives in this browser (localStorage) and can be exported as JSON. Nothing is sent anywhere. */
 (function () {
   "use strict";
   var M = window.MathGen, KEY = "vic-math-arcade-v1", $ = function (s, r) { return (r || document).querySelector(s); };
@@ -88,12 +88,12 @@
   }
 
   /* ---------- views ---------- */
-  function topbar() { var lv = levelOf(S.xp); return '<div class="top"><div class="logo" data-go="home">Vic\'s <b>Math</b> Arcade</div><div class="sp"></div><span class="pill">⚡ <span id="xpv">' + S.xp + '</span> XP</span><span class="pill lvl">Lv ' + lv.level + "</span></div>"; }
+  function topbar() { var lv = levelOf(S.xp); return '<div class="top"><div class="logo" data-go="home">Sam\'s <b>Math</b> Arcade</div><div class="sp"></div><span class="pill">⚡ <span id="xpv">' + S.xp + '</span> XP</span><span class="pill lvl">Lv ' + lv.level + "</span></div>"; }
   function nav() { return '<div class="nav"><button data-go="home">🏟️ Home</button><button data-go="themes">🎨 Stadiums</button><button data-go="progress">📈 Progress</button><button data-go="standards">📚 Standards</button></div>'; }
   function vHome() {
     var lv = levelOf(S.xp), frac = (S.xp - lv.base) / (lv.next - lv.base), C = 2 * Math.PI * 42, th = THEMES.filter(function (t) { return t.id === S.theme; })[0];
     var h = topbar() + nav() + '<div class="card hero"><div class="ring"><svg width="96" height="96"><circle cx="48" cy="48" r="42" stroke="#e7ece8" stroke-width="9" fill="none"/><circle cx="48" cy="48" r="42" stroke="url(#g)" stroke-width="9" fill="none" stroke-linecap="round" stroke-dasharray="' + C + '" stroke-dashoffset="' + (C * (1 - frac)) + '"/><defs><linearGradient id="g"><stop offset="0" stop-color="#ffcc29"/><stop offset="1" stop-color="#ff5d5d"/></linearGradient></defs></svg><div class="in"><div><div class="n">' + lv.level + '</div><div class="t">level</div></div></div></div>' +
-      '<div><h2>Hey Vic! 👋 ' + esc(lv.title) + '</h2><div class="sub">' + (lv.next - S.xp) + " XP to Level " + (lv.level + 1) + " · Stadium: " + th.icon + " " + esc(th.name) + " · 🏆 " + bossCount(S) + "/8 bosses beaten</div>" +
+      '<div><h2>Hey Sam! 👋 ' + esc(lv.title) + '</h2><div class="sub">' + (lv.next - S.xp) + " XP to Level " + (lv.level + 1) + " · Stadium: " + th.icon + " " + esc(th.name) + " · 🏆 " + bossCount(S) + "/8 bosses beaten</div>" +
       '<div class="xpbar"><i style="width:' + Math.round(frac * 100) + '%"></i></div></div></div>' +
       '<div class="modes"><button class="mode quick" data-start="quick"><div class="ic">⚡</div><div class="nm">Quick 10</div><div class="ds">10 mixed problems from all 8 topics. Bonus XP for 7+.</div></button>' +
       '<button class="mode blitz" data-start="blitz"><div class="ic">⏱️</div><div class="nm">Timed Blitz</div><div class="ds">' + BLITZ_SECONDS + ' seconds. Streaks stack combo XP.</div></button>' +
@@ -202,7 +202,7 @@
 
   /* ---------- export / import ---------- */
   function exportData() {
-    return { app: "Vic's Math Arcade", version: 1, exported_at: new Date().toISOString(), note: "Generated locally. Every problem can be rebuilt from its id (topic-level-seed).",
+    return { app: "Sam's Math Arcade", version: 1, exported_at: new Date().toISOString(), note: "Generated locally. Every problem can be rebuilt from its id (topic-level-seed).",
       summary: { xp: S.xp, level: levelOf(S.xp).level, bosses_beaten: bossCount(S), sessions: S.sessions.length,
         topics: M.TOPICS.map(function (t) { var s = S.topics[t.id]; return { topic: t.name, standards: t.cc, maryland: t.md, seen: s.seen, correct: s.correct, accuracy: s.seen ? +(s.correct / s.seen).toFixed(3) : null, boss_wins: s.bossWins, hints: s.hints }; }) },
       _state: S };
@@ -213,7 +213,7 @@
     document.body.appendChild(d); d.showModal();
     $("#impf", d).onchange = function (e) { var f = e.target.files[0]; if (f) f.text().then(function (t) { $("#impt", d).value = t; }); };
     $("#impc", d).onclick = function () { d.close(); d.remove(); };
-    $("#impo", d).onclick = function () { try { var j = JSON.parse($("#impt", d).value); if (j.app !== "Vic's Math Arcade" || !j._state || j._state.v !== 1) throw new Error("not a Math Arcade save"); S = j._state; save(); d.close(); d.remove(); view = "home"; render(); toast("Imported ✅"); } catch (err) { toast("That file didn't work: " + err.message); } };
+    $("#impo", d).onclick = function () { try { var j = JSON.parse($("#impt", d).value); if (j.app !== "Sam's Math Arcade" || !j._state || j._state.v !== 1) throw new Error("not a Math Arcade save"); S = j._state; save(); d.close(); d.remove(); view = "home"; render(); toast("Imported ✅"); } catch (err) { toast("That file didn't work: " + err.message); } };
   }
 
   /* ---------- fx (confetti pattern adapted from HSPT Quest) ---------- */

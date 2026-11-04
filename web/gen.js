@@ -1,4 +1,4 @@
-/* Vic's Math Arcade: seeded problem generator.
+/* Sam's Math Arcade: seeded problem generator.
    Every problem = generate(topic, seed, level). Same inputs -> same problem, always.
    Each problem carries `params` (the raw numbers) so an independent solver (tests/solver.py) can re-derive the answer.
    Works in the browser (window.MathGen) and in Node (module.exports). */

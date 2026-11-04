@@ -117,7 +117,7 @@ try {
   // 7) Export JSON
   const ex = await b.ev("window.__arcade.exportData()");
   const sumXp = ex._state.sessions.reduce((a, s) => a + s.xp, 0);
-  ok("export has app/summary/_state", ex.app === "Vic's Math Arcade" && ex.summary && ex._state && ex.summary.topics.length === 8);
+  ok("export has app/summary/_state", ex.app === "Sam's Math Arcade" && ex.summary && ex._state && ex.summary.topics.length === 8);
   ok("export XP equals sum of session XP", ex.summary.xp === sumXp, ex.summary.xp + " vs " + sumXp);
   const exportedResults = ex._state.sessions.flatMap((s) => s.results);
   ok("every exported result carries id, std, prompt, answer", exportedResults.every((r) => r.id && r.std && r.prompt && r.answer !== undefined), exportedResults.length);

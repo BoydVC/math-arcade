@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Smoke test for Vic's Math Arcade.
+"""Smoke test for Sam's Math Arcade.
 1. 1,000 seeded problems per topic (8,000) are re-solved by an independent Python Fraction solver
    (tests/solver.py), which also confirms the problem's numbers appear in the prompt text.
 2. The in-game answer checker accepts the right answer (canonical and n/d forms) and rejects wrong ones.
@@ -30,7 +30,7 @@ check("all problem ids unique per seed/level", len({p["id"] for p in probs}) == 
 check("sports word problems present", sum(1 for p in probs if re.search(r"game|goal|batting|field|team", p["prompt"], re.I)) >= 500)
 # no real people: fictional names list only
 names = set(re.findall(r"\b(?:Maya|Leo|Sam|Ava|Noah|Zoe|Eli|Ruby|Max|Ivy|Kai|Nora|Jay|Lila|Ben|Mia)\b", " ".join(p["prompt"] for p in probs)))
-check("word problems use fictional first names only (no last names / real stats)", not re.search(r"\b(Victor|Vic|Boyd|Hornets)\b", " ".join(p["prompt"] for p in probs)), sorted(names)[:8])
+check("word problems use fictional first names only (no last names / real stats)", not re.search(r"\b(Samuel|Sam|Boyd|Hornets)\b", " ".join(p["prompt"] for p in probs)), sorted(names)[:8])
 again = json.loads(subprocess.run(["node", "tests/dump.js", "50", str(base)], capture_output=True, text=True, check=True).stdout)
 byid = {p["id"]: p for p in probs}
 check("deterministic: same seed -> identical problems", len(again) == 400 and all(byid.get(a["id"]) == a for a in again), f"{len(again)} re-generated")

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Vic's Math Arcade: build, test, serve on :4255.
+# Sam's Math Arcade: build, test, serve on :4255.
 #   ./run.sh            build + full smoke test (incl. ~2 min headless play) + serve
 #   ./run.sh --quick    build + smoke test without headless play + serve
 #   ./run.sh --shots    also regenerate screenshots (headless Chrome)

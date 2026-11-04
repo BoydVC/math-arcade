@@ -1,4 +1,4 @@
-// Minimal Chrome DevTools Protocol driver for Vic's Math Arcade tests (Node 20: --experimental-websocket).
+// Minimal Chrome DevTools Protocol driver for Sam's Math Arcade tests (Node 20: --experimental-websocket).
 // Same approach as the HSPT Quest helper, written separately for this project. Uses a throwaway Chrome profile.
 import { spawn } from "node:child_process";
 import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
