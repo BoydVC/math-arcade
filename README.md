@@ -1,6 +1,6 @@
-# Vic's Math Arcade 🏟️
+# Sam's Math Arcade 🏟️
 
-An arcade-style practice game for **6th-grade math**, built for Vic (Green Hornets ⚽, baseball ⚾).
+An arcade-style practice game for **6th-grade math**, built for Sam (Blue Comets ⚽, baseball ⚾).
 It's one offline HTML file with no accounts, no network calls, and no ads. Progress saves in the browser and exports as JSON.
 
 * **Play:** http://localhost:4255/ (served from `dist/`), or open `dist/vics-math-arcade.html` directly. It works offline from a file or USB stick.
@@ -21,7 +21,7 @@ It's one offline HTML file with no accounts, no network calls, and no ads. Progr
 
 There are 53 problem kinds in all, and each problem shows its exact CCSS code.
 
-**About Maryland:** Maryland's math standards ("MCCRS", based on Common Core) were **revised and adopted July 29, 2025, starting in school year 2026–27**. That's Vic's 6th-grade year. The revision renames the domains (for example RP→AT, NS→NOS, G→GR, SP→DS). The game shows the CCSS code on every problem plus the closest matching MCCRS **cluster** from MSDE's Grade 6 crosswalk. The mapping is at the cluster level, not one-to-one by standard.
+**About Maryland:** Maryland's math standards ("MCCRS", based on Common Core) were **revised and adopted July 29, 2025, starting in school year 2026–27**. That's Sam's 6th-grade year. The revision renames the domains (for example RP→AT, NS→NOS, G→GR, SP→DS). The game shows the CCSS code on every problem plus the closest matching MCCRS **cluster** from MSDE's Grade 6 crosswalk. The mapping is at the cluster level, not one-to-one by standard.
 
 Sources (reachable when checked Wed Oct 7, 2026 at 5:54 PM ET):
 * Common Core Grade 6 Math: https://www.thecorestandards.org/Math/Content/6/
@@ -51,7 +51,7 @@ Sources (reachable when checked Wed Oct 7, 2026 at 5:54 PM ET):
 * **Answers can be typed** as `3/4`, `1 1/2`, `0.75`, `-5`, `$4.50`, `25%`, or `12 goals`. Fractions are compared exactly, so 6/8 = 3/4 = 0.75.
 
 ## Data and privacy
-* Every word problem uses **made-up names and teams with generic numbers**, such as "the Owls", "Maya", or "a made-up batting average". There are **no real kids' stats** and nothing about Vic's actual teams.
+* Every word problem uses **made-up names and teams with generic numbers**, such as "the Owls", "Maya", or "a made-up batting average". There are **no real kids' stats** and nothing about Sam's actual teams.
 * Progress stays in `localStorage` (`vic-math-arcade-v1`) on the device. **Progress → Export** downloads a JSON file containing `summary` (per-topic accuracy, boss wins, XP) and `_state` (every session and every problem with its prompt, the answer given, the correct answer, and the standard). **Import** restores it.
 
 ## How correctness is checked
