@@ -30,7 +30,7 @@ check("all problem ids unique per seed/level", len({p["id"] for p in probs}) == 
 check("sports word problems present", sum(1 for p in probs if re.search(r"game|goal|batting|field|team", p["prompt"], re.I)) >= 500)
 # no real people: fictional names list only
 names = set(re.findall(r"\b(?:Maya|Leo|Sam|Ava|Noah|Zoe|Eli|Ruby|Max|Ivy|Kai|Nora|Jay|Lila|Ben|Mia)\b", " ".join(p["prompt"] for p in probs)))
-check("word problems use fictional first names only (no last names / real stats)", not re.search(r"\b(Samuel|Sam|Boyd|Hornets)\b", " ".join(p["prompt"] for p in probs)), sorted(names)[:8])
+check("word problems use fictional first names only (no last names / real stats)", not re.search(r"\b(Samuel|Sam|Alex|Hornets)\b", " ".join(p["prompt"] for p in probs)), sorted(names)[:8])
 again = json.loads(subprocess.run(["node", "tests/dump.js", "50", str(base)], capture_output=True, text=True, check=True).stdout)
 byid = {p["id"]: p for p in probs}
 check("deterministic: same seed -> identical problems", len(again) == 400 and all(byid.get(a["id"]) == a for a in again), f"{len(again)} re-generated")
